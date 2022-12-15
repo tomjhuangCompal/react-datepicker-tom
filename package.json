@@ -1,8 +1,8 @@
 {
   "author": "HackerOne",
-  "name": "react-datepicker",
+  "name": "react-datepicker-tom-tw",
   "description": "A simple and reusable datepicker component for React",
-  "version": "4.8.0",
+  "version": "4.8.3-tom",
   "license": "MIT",
   "homepage": "https://github.com/Hacker0x01/react-datepicker",
   "main": "dist/index.js",

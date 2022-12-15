@@ -156,10 +156,17 @@ export function formatDate(date, formatStr, locale) {
   ) {
     localeObj = getLocaleObject(getDefaultLocale());
   }
-  return format(date, formatStr, {
+  // Note 日期顯示
+  const showDate = format(date, formatStr, {
     locale: localeObj ? localeObj : null,
     awareOfUnicodeTokens: true,
   });
+  const year = /\d{4}/.exec(showDate);
+  if (year && year[0]) {
+    const twYear = (Number(year[0]) - 1911).toString();
+    return showDate.replace(/\d{4}/, twYear);
+  }
+  return showDate;
 }
 
 export function safeDateFormat(date, { dateFormat, locale }) {
@@ -377,7 +384,9 @@ export function getLocaleObject(localeSpec) {
 }
 
 export function getFormattedWeekdayInLocale(date, formatFunc, locale) {
-  return typeof formatFunc === "function" ? formatFunc(date, locale) : formatDate(date, "EEEE", locale);
+  return typeof formatFunc === "function"
+    ? formatFunc(date, locale)
+    : formatDate(date, "EEEE", locale);
 }
 
 export function getWeekdayMinInLocale(date, locale) {

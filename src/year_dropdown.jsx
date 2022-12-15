@@ -26,14 +26,14 @@ export default class YearDropdown extends React.Component {
   };
 
   renderSelectOptions = () => {
-    const minYear = this.props.minDate ? getYear(this.props.minDate) : 1900;
+    const minYear = this.props.minDate ? getYear(this.props.minDate) : 1911;
     const maxYear = this.props.maxDate ? getYear(this.props.maxDate) : 2100;
 
     const options = [];
     for (let i = minYear; i <= maxYear; i++) {
       options.push(
         <option key={i} value={i}>
-          {i}
+          {i - 1911}
         </option>
       );
     }
@@ -87,7 +87,7 @@ export default class YearDropdown extends React.Component {
     if (dropdownVisible) {
       result.unshift(this.renderDropdown());
     }
-    return result;
+    return "ffddfdf";
   };
 
   onChange = (year) => {
